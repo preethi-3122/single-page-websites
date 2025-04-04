@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Scrolling Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <div id="hero" class="section hero fade-in">
+            <h1>Welcome to My Modern Website</h1>
+            <p>Experience smooth scrolling and animations.</p>
+        </div>
+        
+        <div id="about" class="section about fade-in">
+            <h2>About</h2>
+            <p>We create stunning web experiences with modern effects.</p>
+        </div>
+        
+        <div id="contact" class="section contact fade-in">
+            <h2>Contact</h2>
+            <form onsubmit="submitForm(event)">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('message').innerText = 'Thank you for your message!';
+        }
+
+        // Scroll animation
+        const sections = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

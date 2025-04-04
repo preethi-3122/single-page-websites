@@ -1,0 +1,69 @@
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; padding: 0; 
+}
+html { 
+    scroll-behavior: smooth; 
+}
+nav { 
+    background: #222; 
+    padding: 15px; 
+    text-align: center; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000;
+}
+nav a { 
+    color: white; 
+    margin: 0 20px; 
+    text-decoration: none; 
+    font-size: 18px; 
+    padding: 10px;
+     cursor: pointer; 
+}
+.container {
+     max-width: 1200px;
+      margin: auto; 
+      padding-top: 70px; 
+}
+.section { 
+    padding: 100px 20px; 
+    text-align: center;
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content:center; 
+    align-items: center;
+}
+.hero {
+     background: linear-gradient(to right, #ff7e5f, #feb47b); 
+     color: white; 
+}
+.about { 
+    background: linear-gradient(to right, #86a8e7, #7f7fd5);
+    color: white; 
+}
+.contact { 
+    background: linear-gradient(to right, #11998e, #38ef7d); 
+    color: white;
+}
+button { 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border: none; 
+    background: #222; 
+    color: white; 
+}
+.fade-in { 
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: opacity 0.8s ease-out, 
+    transform 0.8s ease-out; 
+}
+.fade-in.visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
